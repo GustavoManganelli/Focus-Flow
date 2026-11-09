@@ -1,6 +1,6 @@
 import TaskDashboard from "@/components/tasks/dashboard/TaskDashboard";
 import type { Task } from "@/types/task";
-
+import styles from "./page.module.css";
 
 export default function Home() {
   const tasks: Task[] = [
@@ -38,10 +38,13 @@ export default function Home() {
 
 
   return (
-    <main>
-      <h1>FocusFlow</h1>
-      <p>Organize suas tarefas de estudo, trabalho e vida pessoal.</p>
-      <br />
+    <main className={styles.main}>
+      <header>
+        <h1 className={styles.title}>FocusFlow</h1>
+        <p className={styles.description}>
+          Planeje o que importa e acompanhe cada próximo passo.
+        </p>
+      </header>
       <TaskDashboard initialTasks={tasks} />
     </main>
   );

@@ -34,4 +34,17 @@ export function filterTasks(tasks: Task[], filter: TaskFilters): Task[] {
 
     return matchesQuery && matchesCategory && matchesPriority && matchesStatus;
   });
+
 }
+
+export function updateTask(task: Task, draft: TaskDraft, updatedAt: string): Task {
+  return {
+    ...task,
+    title: draft.title.trim(),
+    category: draft.category,
+    priority: draft.priority,
+    dueDate: draft.dueDate || undefined,
+    updatedAt,
+  }
+}
+
